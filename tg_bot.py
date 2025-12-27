@@ -4,6 +4,8 @@ from bot_logic import gen_pass, flip_coin
 from telebot import types
 from telebot.types import ReactionTypeEmoji
 
+t = (os.listdir('memes'))
+
 PRICES = {
     'Бантик для подарка': 1,   
     'Обёртка для подарка': 45,   
@@ -40,6 +42,17 @@ def passsing(message):
 def coin(message):
     b=flip_coin()
     bot.reply_to(message, b)
+
+@bot.message_handler(commands=['send_meme'])
+def mem(message):
+    with open('meme.jpeg', 'rb') as s:
+        bot.send_photo(message.chat.id, s)
+
+@bot.message_handler(commands=['random_meme'])
+def mems(message):
+    k= random.choice(t)
+    with open(f'memes/{k}', 'rb') as u:
+        bot.send_photo(message.chat.id, u)
 
 #@bot.message_handler(func=lambda message: True)
 #def echo_all(message):
