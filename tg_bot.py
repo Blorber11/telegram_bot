@@ -19,7 +19,7 @@ bot = telebot.TeleBot("8386218517:AAErHnxkacLOMe5PRvVY6Y_LOHfgAV9zYXY")
 
 @bot.message_handler(commands=['help'])
 def send_welcome(message):
-    bot.reply_to(message, "Вот команды, доступные в боте: /hello , /bye , /generation (создает пароль длиной 10 символов), /flipcoin (подкидывает монету), /buy ( купить несуществующий подарок :) )")
+    bot.reply_to(message, "Вот команды, доступные в боте: /hello , /bye , /generation (создает пароль длиной 10 символов), /flipcoin (подкидывает монету), /buy ( купить несуществующий подарок :) ), /send_meme (отправит мем), /random_meme (отправит рандомный мем)")
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
